@@ -5,13 +5,26 @@ import Region from './data/Region.js'
 
 export default {
   state: {
+    selected: {
+      pref: '',
+      larea: '',
+      sarea: ''
+    },
     region: Region,
     largeareas: '',
     smallareas: '',
-    hotels: '',
-    hoteldetail: ''
+    hotels: { Hotel: [{ HotelID: '' }] }
   },
   mutations: {
+    SET_SELECTED_PREF (state, dataParam) {
+      state.selected.pref = dataParam
+    },
+    SET_SELECTED_L_AREA (state, dataParam) {
+      state.selected.larea = dataParam
+    },
+    SET_SELECTED_S_AREA (state, dataParam) {
+      state.selected.sarea = dataParam
+    },
     SET_LARGE_AREAS (state, dataParam) {
       state.largeareas = dataParam
     },
@@ -20,27 +33,22 @@ export default {
     },
     SET_HOTEL_LISTS (state, dataParam) {
       state.hotels = dataParam
-    },
-    SET_HOTEL_DETAIL (state, dataParam) {
-      state.hoteldetail = dataParam
     }
   },
   actions: {
     async GET_LARGE_AREAS (context, payload) {
       const dataParam = await API.getLargeAreas(payload)
-      context.commit('SET_LARGE_AREAS', dataParam)
+      context.commit('SET_SELECTED_PREF', dataParam.title)
+      context.commit('SET_LARGE_AREAS', dataParam.largeArea)
     },
     async GET_SMALL_AREAS (context, payload) {
       const dataParam = await API.getSmallAreas(payload)
-      context.commit('SET_SMALL_AREAS', dataParam)
+      context.commit('SET_SELECTED_L_AREA', dataParam.title)
+      context.commit('SET_SMALL_AREAS', dataParam.smallArea)
     },
     async GET_HOTEL_LISTS (context, payload) {
       const dataParam = await API.getHotelLists(payload)
-      context.commit('SET_HOTEL_LISTS', dataParam.data)
-    },
-    async GET_HOTEL_DETAIL (context, payload) {
-      const dataParam = await API.getHotelDetail(payload)
-      context.commit('SET_HOTEL_DETAIL', dataParam.data)
+      context.commit('SET_HOTEL_LISTS', dataParam)
     }
   }
 }

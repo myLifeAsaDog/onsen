@@ -1,43 +1,35 @@
 import axios from 'axios'
 
-const API = 'xmltojson.php'
+const LARGE_AREA_API = './api/largeArea.php'
+const SMALL_AREA_API = './api/smallArea.php'
+const HOTEL_LIST_API = './api/hotelList.php'
 
 export default {
   getLargeAreas (prefCD) {
-    const endPoint = `${API}?pref=${prefCD}`
+    const endPoint = `${LARGE_AREA_API}?pref=${prefCD}`
     return axios.get(endPoint)
       .then((response) => {
-        return response.data.Area.Region.Prefecture.LargeArea
+        return response.data
       })
       .catch((error) => {
         console.log(error)
       })
   },
   getSmallAreas (largeAreaCD) {
-    const endPoint = `${API}?l_area=${largeAreaCD}`
+    const endPoint = `${SMALL_AREA_API}?l_area=${largeAreaCD}`
     return axios.get(endPoint)
       .then((response) => {
-        return response.data.Area.Region.Prefecture.LargeArea.SmallArea
+        return response.data
       })
       .catch((error) => {
         console.log(error)
       })
   },
   getHotelLists (smallAreaCD) {
-    const endPoint = `${API}?s_area=${smallAreaCD}`
+    const endPoint = `${HOTEL_LIST_API}?s_area=${smallAreaCD}`
     return axios.get(endPoint)
       .then((response) => {
-        return response
-      })
-      .catch((error) => {
-        console.log(error)
-      })
-  },
-  getHotelDetail (HotelID) {
-    const endPoint = `${API}?h_id=${HotelID}`
-    return axios.get(endPoint)
-      .then((response) => {
-        return response
+        return response.data
       })
       .catch((error) => {
         console.log(error)

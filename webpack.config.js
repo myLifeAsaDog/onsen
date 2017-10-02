@@ -16,14 +16,14 @@ module.exports = {
         loader: 'babel-loader'
       }
     ]
-  },/*
+  },
   plugins: [
     new webpack.DefinePlugin({
         'process.env': {
             NODE_ENV: '"production"'
         }
     })
-],*/
+  ],
   resolve: {
     alias: {
       'vue$': 'vue/dist/vue.esm.js' // important
