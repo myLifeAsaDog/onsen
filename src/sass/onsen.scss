@@ -82,31 +82,80 @@ footer {
 .MdCMN01HotelData {
   background: #ffffff;
   border-radius: 4px;
+  box-shadow: 0 1px 5px #cccccc;
+  overflow: hidden;
 
   .mdCMN01Photo {
-    padding: 15px;
-    margin: 60px 0 0 0;
     position: relative;
-    top: -40px;
+    height: 100%;
+    background: #333333;
+    border-bottom: solid 6px $GreenColor;
     line-height: 0;
+    overflow: hidden;
 
     img {
-      border-radius: 4px;
-      box-shadow: 1px 1px 8px #aaaaaa;
+      opacity: 0.5;
+    }
+
+    .mdCMN01Meta {
+      position: absolute;
+      left: 0px;
+      top: 30%;
+      padding: 10px 20px;
+      width: 100%;
+      box-sizing: border-box;
+
+      dt {
+        padding: 10px;
+        border: solid 2px #ffffff;
+        color: #ffffff;
+        font-weight: bold;
+        text-align: center;
+        line-height: 1.333;
+        text-shadow: 0 0 1px #333333;
+      }
+
+      ul {
+        display: flex;
+        justify-content: flex-end;
+        color: #ffffff;
+
+        li {
+          margin: 8px 0px;
+          padding: 0 20px 0 0;
+          font-size: 14px;
+          font-weight: bold;
+        }
+      }
     }
   }
-  .mdCMN01Dl {
-    margin: -40px 0 0 0;
+  .mdCMN01Txt {
+    padding: 20px;
     color: #666666;
+    line-height: 1.33;
+  }
+}
+.mdCMN02Pager {
+  display: flex;
+  margin: 0 20px;
 
-    dt {
-      padding: 20px 0;
-      margin: 0 20px;
-      border-bottom: solid 2px $GreenColor;
+  li {
+    flex: 1;
+    margin: 0 5px 0 0;
+    padding: 20px;
+    background: #ffffff;
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: 0 1px 5px #cccccc;
+    overflow: hidden;
+
+    &:last-child {
+      margin: 0 0 0 5px;
     }
-    dd {
-      padding: 20px;
-      line-height: 1.33;
+
+    &.ExDisabled {
+      color: #cccccc;
+      pointer-events: none;
     }
   }
 }

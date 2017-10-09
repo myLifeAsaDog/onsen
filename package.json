@@ -4,13 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run sass & npm run build",
+    "start": "npm run sass && npm run lint && npm run build && npm run uglify",
     "build": "webpack --progress",
     "sass": "node-sass --output-style compressed src/sass/onsen.scss docs/css/onsen.css",
     "uglify": "node_modules/.bin/uglifyjs -c -o ./docs/js/onsen.js ./docs/js/onsen.js",
     "lint": "node_modules/.bin/eslint ./src/js/* ./src/js/**/*.vue",
-    "lint:fix": "node_modules/.bin/eslint ./src/js/* ./src/js/**/*.vue --fix",
-    "start": "npm run lint && npm run build && npm run uglify"
+    "lint:fix": "node_modules/.bin/eslint ./src/js/* ./src/js/**/*.vue --fix"
   },
   "author": "",
   "license": "ISC",

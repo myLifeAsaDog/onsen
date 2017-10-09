@@ -25,8 +25,8 @@ export default {
         console.log(error)
       })
   },
-  getHotelLists (smallAreaCD) {
-    const endPoint = `${HOTEL_LIST_API}?s_area=${smallAreaCD}`
+  getHotelLists (payload) {
+    const endPoint = `${HOTEL_LIST_API}?s_area=${payload.smallAreaCD}&start=${payload.startPage}`
     return axios.get(endPoint)
       .then((response) => {
         return response.data
