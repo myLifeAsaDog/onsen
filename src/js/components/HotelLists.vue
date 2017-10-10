@@ -12,6 +12,7 @@
               <dt>{{ item.HotelName }}</dt>
               <dd>
                 <ul>
+                  <li>{{ item.OnsenName }}</li>
                   <li>&starf; {{ item.Rating | isNull }}</li>
                   <li>&yen; {{ item.SampleRateFrom | currency }}</li>
                 </ul>
@@ -78,6 +79,9 @@ export default {
       startPage: 1
     })
     this.isLoaded = false
+  },
+  beforeUpdate () {
+    window.scroll(0, 0)
   },
   methods: {
     prevPage () {

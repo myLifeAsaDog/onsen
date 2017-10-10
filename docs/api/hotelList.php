@@ -17,6 +17,7 @@
     $result .= '"PictureURL":"'.(string)$node->PictureURL.'",';
     $result .= '"HotelCaption":"'.str_replace(['<BR>','"'],['','&quot;'],(string)$node->HotelCaption).'",';
     $result .= '"HotelDetailURL":"'.(string)$node->HotelDetailURL.'",';
+    $result .= '"OnsenName":"'.(string)$node->OnsenName.'",';
     $result .= '"SampleRateFrom":"'.(string)$node->SampleRateFrom.'",';
     $result .= '"Rating":"'.(string)$node->Rating.'"';
     $result .= '}';
