@@ -14,7 +14,7 @@
     $result .= '{';
     $result .= '"HotelID":"'.(string)$node->HotelID.'",';
     $result .= '"HotelName":"'.(string)$node->HotelName.'",';
-    $result .= '"PictureURL":"'.(string)$node->PictureURL.'",';
+    $result .= '"PictureURL":"'.str_replace('http://', 'https://', $node->PictureURL).'",';
     $result .= '"HotelCaption":"'.str_replace(['<BR>','"'],['','&quot;'],(string)$node->HotelCaption).'",';
     $result .= '"HotelDetailURL":"'.(string)$node->HotelDetailURL.'",';
     $result .= '"OnsenName":"'.(string)$node->OnsenName.'",';
