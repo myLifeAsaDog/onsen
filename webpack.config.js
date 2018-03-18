@@ -1,4 +1,4 @@
-var webpack = require("webpack");
+const webpack = require('webpack')
 
 module.exports = {
   entry: './src/js/index.js',
@@ -19,14 +19,14 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-        'process.env': {
-            NODE_ENV: '"production"'
-        }
+      'process.env': {
+        NODE_ENV: '"production"'
+      }
     })
   ],
   resolve: {
     alias: {
-      'vue$': 'vue/dist/vue.esm.js' // important
-   }
+      vue$: 'vue/dist/vue.esm.js' // important
+    }
   }
 }
