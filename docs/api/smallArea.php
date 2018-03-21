@@ -21,6 +21,7 @@
 
   $result .= ']}';
 
+  header('Content-Length:' . strlen($result));
   header("Content-Type: text/json; charset=utf-8");
   echo $result;
   exit();
