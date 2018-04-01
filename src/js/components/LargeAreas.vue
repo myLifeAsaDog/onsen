@@ -2,7 +2,8 @@
   <section>
     <h2>{{ title }}</h2>
     <ul class="Md01List">
-      <li v-for="item in largeareas">
+      <li v-if="hasAreas"><a href="#">Now Loading</a></li>
+      <li v-else v-for="item in largeareas">
         <router-link :to="`${path}/${item.cd}`">
           {{ item.name }}</router-link></li>
     </ul>
@@ -24,6 +25,9 @@ export default {
   computed: {
     title () {
       return this.$store.state.selected.pref
+    },
+    hasAreas () {
+      return this.$store.state.largeareas === ''
     },
     largeareas () {
       return this.$store.state.largeareas

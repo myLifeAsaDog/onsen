@@ -11,8 +11,8 @@ export default {
       sarea: ''
     },
     region: Region,
-    largeareas: '',
-    smallareas: '',
+    largeareas: [],
+    smallareas: [],
     hotels: { Hotel: [{ HotelID: '' }] }
   },
   mutations: {
@@ -37,16 +37,19 @@ export default {
   },
   actions: {
     async GET_LARGE_AREAS (context, payload) {
+      context.commit('SET_LARGE_AREAS', '')
       const dataParam = await API.getLargeAreas(payload)
       context.commit('SET_SELECTED_PREF', dataParam.title)
       context.commit('SET_LARGE_AREAS', dataParam.largeArea)
     },
     async GET_SMALL_AREAS (context, payload) {
+      context.commit('SET_SMALL_AREAS', '')
       const dataParam = await API.getSmallAreas(payload)
       context.commit('SET_SELECTED_L_AREA', dataParam.title)
       context.commit('SET_SMALL_AREAS', dataParam.smallArea)
     },
     async GET_HOTEL_LISTS (context, payload) {
+      context.commit('SET_HOTEL_LISTS', '')
       const dataParam = await API.getHotelLists(payload)
       context.commit('SET_HOTEL_LISTS', dataParam)
     }

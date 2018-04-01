@@ -2,11 +2,12 @@
   <section>
     <h2>{{ title }}</h2>
     <ul class="Md01List">
-      <li v-for="item in smallareas" @click="SelectSmallArea(item.name)">
+      <li v-if="hasAreas"><a href="#">Now Loading</a></li>
+      <li v-else v-for="item in smallareas" @click="SelectSmallArea(item.name)">
         <router-link :to="`${path}/${item.cd}`">
           {{ item.name }}</router-link></li>
     </ul>
-    <Footer></Footer>    
+    <Footer></Footer>
   </section>
 </template>
 
@@ -24,6 +25,9 @@ export default {
   computed: {
     title () {
       return this.$store.state.selected.larea
+    },
+    hasAreas () {
+      return this.$store.state.smallareas === ''
     },
     smallareas () {
       return this.$store.state.smallareas
